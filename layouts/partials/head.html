@@ -22,8 +22,8 @@
   {{ $custom := resources.Get "css/custom.css" }}
   {{ $bundle := slice $poole $syntax $hyde $custom | resources.Concat "css/bundle.css" }}
   {{ if hugo.Environment | eq "production" }}
-  {{ $print = $print | resources.Minify }}
-  {{ $bundle = $bundle | resources.Minify }}
+    {{ $print = $print | resources.Minify }}
+    {{ $bundle = $bundle | resources.Minify }}
   {{ end }}
   <link type="text/css" rel="stylesheet" href="{{ $print.Permalink }}" media="print">
   <link type="text/css" rel="stylesheet" href="{{ $bundle.Permalink }}">
